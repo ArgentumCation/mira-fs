@@ -1,0 +1,52 @@
+- fuse3 crate
+## `(Path)Filesystem`
+- Required bits
+	- `type DirEntryStream: Stream<Item = Result<DirectoryEntry> + Send`
+		- returned by `readdir`
+	- `type DirEntryPlusStream<Item = Result<DirectoryEntryPlus>> + Send`
+		- returned by `readdirplus`
+	- `fn init(&self, ref: Request) -> impl Future<Output = Result<ReplayInit>> + Send`
+		- initialize the fs
+	- `fn destroy(&self, req: Request) -> imple Future<Output = ()> + Send`
+		- cleanup the fs
+	- `PathFilesystem` uses `OsStr` to identify paths
+	- `Filesystem` uses a `u64` inode to identify paths
+- Provided methods (may need to override)
+- `access`
+- `batch_forget`
+- `bmap`
+- `copy_file_range`
+- `create`
+- `fallocate`
+- `flush`
+- `forget`
+- `fsync`
+- `fsyncdir`
+- `getattr`
+- `getxattr`
+- `interrupt`
+- `link`
+- `listxattr`
+- `lookup`
+- `lseek`
+- `mkdir`
+- `mknod`
+- `notify_reply`
+- `open`
+- `opendir`
+- `poll`
+- `read`
+- `readdir`
+- `readdirplus`
+- `readlink`
+- `release`
+- `removexattr
+- `rename`
+- `rename2`
+- `rmdir`
+- `setattr`
+- `setxattr`
+- `statfs`
+- `symlink`
+- `unlink`
+- `write`

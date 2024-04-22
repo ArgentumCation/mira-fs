@@ -1,0 +1,14 @@
+[package]
+name = "mira-fs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+fuse3 = { version = "0.7.1", features = ["unprivileged", "tokio-runtime"] }
+futures-util = "0.3.30"
+indradb-lib = {version = "4.0.0", features=[]}
+rand = "0.8.5"
+serde_json = "1.0.116"
+walkdir = "2.5.0"
