@@ -4,7 +4,7 @@ pub struct Snowflake(u64);
 
 impl Snowflake {
     fn new() -> Self {
-        let unix_time = std::time::SystemTime::now()
+        let unix_time: u128 = std::time::SystemTime::now()
             .duration_since(std::time::UNIX_EPOCH)
             .map_err(
                 |err| -> Result<std::time::Duration, std::time::SystemTimeError> {
